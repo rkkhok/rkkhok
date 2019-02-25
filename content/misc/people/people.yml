@@ -1,0 +1,19 @@
+title: Elnökség
+elnokseg:
+  - email: gal.csongor@hok.uni-obuda.hu
+    name: Gál Csongor
+    phone: ‭+36 20 248 7978‬
+    photo: https://res.cloudinary.com/omgweb/image/upload/c_scale,q_auto:good,w_1000/v1536675529/rkkhok/people/ga%CC%81l.jpg
+    position: Elnök
+  - email: tasnady.reka@hok.uni-obuda.hu
+    name: Tasnády Réka
+    photo: https://res.cloudinary.com/omgweb/image/upload/c_scale,q_auto:good,w_1000/v1536675531/rkkhok/people/tas.jpg
+    position: Alelnök
+  - email: fabian.tamas@hok.uni-obuda.hu
+    name: Fábián Tamás
+    photo: https://res.cloudinary.com/omgweb/image/upload/c_scale,q_auto:good,w_1000/v1536675531/rkkhok/people/fa%CC%81bia%CC%81n.jpg
+    position: Gazdasági ügyekért felelős elnökségi tag
+  - email: vadas.tamara@hok.uni-obuda.hu
+    name: Vadas Tamara
+    photo: https://res.cloudinary.com/omgweb/image/upload/c_scale,q_auto:good,w_1000/v1536675537/rkkhok/people/vadas.jpg
+    position: Érdekvédelmi ügyekért felelős elnökségi tag

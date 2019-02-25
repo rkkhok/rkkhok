@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+media_folder: '/content/images' # Media files will be stored in the repo under images/uploads
+
+media_library:
+  name: simple-cloudinary
+  config:
+    config_url: 'https://admin.next.rkkhok.hu/.netlify/functions/cloudinary'
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+
+display_url: https://next.rkkhok.hu
+
+collections:
+  - name: 'news' # Used in routes, e.g., /admin/collections/blog
+    label: 'Hírek' # Used in the UI
+    folder: 'content/news' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Cím', name: 'title', widget: 'string' }
+      - { label: 'Dátum', name: 'date', widget: 'datetime' }
+      - {
+          label: 'Facebook kép',
+          name: 'facebook_image',
+          widget: 'image',
+          required: false,
+          options: { media_library: { config: { multiple: false } } },
+        }
+      - { label: 'Szöveg', name: 'body', widget: 'markdown' }
+  - name: 'tenders' # Used in routes, e.g., /admin/collections/blog
+    label: 'Pályázatok' # Used in the UI
+    folder: 'content/tenders' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    extension: yml
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Cím', name: 'title', widget: 'string' }
+      - { label: 'Dátum', name: 'date', widget: 'datetime' }
+      - { label: 'Lejárat dátuma', name: 'date_exp', widget: 'datetime' }
+      - {
+          label: 'Facebook kép',
+          name: 'facebook_image',
+          widget: 'image',
+          required: false,
+          options: { media_library: { config: { multiple: false } } },
+        }
+      - { label: 'Szöveg', name: 'body', widget: 'markdown' }
+      - label: Fájlok
+        name: files
+        widget: list
+        fields:
+          - { label: Megnevezés, name: name, widget: string }
+          - { label: Link, name: link, widget: string }
+          - {
+              label: 'Leírás',
+              name: description,
+              widget: string,
+              required: false,
+            }
+
+  - name: 'pagedata'
+    label: 'Oldal adatok'
+    files:
+      - label: 'HÖK Tagok'
+        name: 'people'
+        file: 'content/misc/people/people.yml'
+        editor:
+          preview: false
+        fields:
+          - { label: Oldal cím, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown, required: false }
+          - label: Elnökség
+            name: elnokseg
+            widget: list
+            fields:
+              - { label: Név, name: name, widget: string }
+              - { label: Poszt, name: position, widget: string }
+              - { label: 'Email cím', name: email, widget: string }
+              - {
+                  label: Telefonszám,
+                  name: phone,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Kép,
+                  name: photo,
+                  widget: image,
+                  required: false,
+                  options: { media_library: { config: { multiple: false } } },
+                }
